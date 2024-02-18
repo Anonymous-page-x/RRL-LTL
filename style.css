@@ -1,0 +1,21 @@
+body {
+    font-family: Arial, sans-serif; 
+    line-height: 1.6; /* Adds spacing between lines */
+}
+
+.article-container {
+    width: 70%;         /* Adjust the width as desired */
+    margin: 40px auto;  /* Top/bottom margin and centers horizontally */
+    padding: 30px;       
+    border: 1px solid #ccc; /* Optional subtle border */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Optional light shadow */
+}
+
+h1 {
+    text-align: center;
+}
+
+.author {
+    text-align: center;
+    margin-bottom: 20px;
+}
