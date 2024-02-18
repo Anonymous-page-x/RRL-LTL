@@ -1,21 +1,38 @@
 body {
-    font-family: Arial, sans-serif; 
-    line-height: 1.6; /* Adds spacing between lines */
+    font-family: 'Times New Roman', Times, serif; 
+    line-height: 1.6; 
 }
 
 .article-container {
-    width: 70%;         /* Adjust the width as desired */
-    margin: 40px auto;  /* Top/bottom margin and centers horizontally */
-    padding: 30px;       
-    border: 1px solid #ccc; /* Optional subtle border */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Optional light shadow */
+    width: 70%;         
+    margin: 40px auto;  
+    padding: 30px; 
+    font-size: 18px;      
 }
 
 h1 {
     text-align: center;
+    font-size: 2.5em; 
 }
 
 .author {
     text-align: center;
     margin-bottom: 20px;
+}
+
+/* Styles for the GIF section */
+.gif-section {
+    width: 80%;
+    margin: 40px auto;
+    text-align: center;  
+}
+
+.gif-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    gap: 20px; 
+}
+
+.gif-grid img {
+    width: 100%; 
 }
