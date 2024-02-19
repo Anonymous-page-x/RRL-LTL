@@ -9,6 +9,11 @@ body {
     padding: 30px; 
     font-size: 18px;      
 }
+.article-container img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 h1 {
     text-align: center;
