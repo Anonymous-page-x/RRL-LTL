@@ -41,3 +41,10 @@ h1 {
 .gif-grid img {
     width: 100%; 
 }
+
+/* ... your existing styles ... */
+
+.video-row {
+    display: flex;
+    justify-content: space-around; /* Distributes videos evenly */
+}
