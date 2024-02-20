@@ -45,16 +45,19 @@ h2 {
 /* ... your existing styles ... */
 
 /* ... your existing styles ... */
+/* ... your existing styles ... */
 
 .video-row {
     display: flex;
-    flex-direction: column; /* Stack title and GIFs vertically */
-    align-items: center;    /* Center everything horizontally */
+    flex-direction: row; /* Change back to horizontal layout */
+    align-items: center;   
+    justify-content: space-around; /* Distribute GIFs evenly */
 }
 
 .video-row img {
-    max-width: 100%;        /* Make GIFs scale to fit their container */
-    height: auto;           /* Maintain aspect ratio */
-    margin-bottom: 10px;    /* Add space between GIFs */
+    max-width: 30%;        /* Adjust percentage for individual GIF size */
+    height: auto;          
+    margin: 10px;          /* Spacing between GIFs */
 }
+
 
