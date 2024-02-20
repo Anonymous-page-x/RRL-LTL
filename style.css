@@ -44,7 +44,17 @@ h1 {
 
 /* ... your existing styles ... */
 
+/* ... your existing styles ... */
+
 .video-row {
     display: flex;
-    justify-content: space-around; /* Distributes videos evenly */
+    flex-direction: column; /* Stack title and GIFs vertically */
+    align-items: center;    /* Center everything horizontally */
 }
+
+.video-row img {
+    max-width: 100%;        /* Make GIFs scale to fit their container */
+    height: auto;           /* Maintain aspect ratio */
+    margin-bottom: 10px;    /* Add space between GIFs */
+}
+
