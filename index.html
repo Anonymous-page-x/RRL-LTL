@@ -6,33 +6,74 @@
     <title>RRL-LTLf</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script> 
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 </head>
 <body>
     <div class="article-container">
-        <h2>Robust Reinforcement Learning for Linear Temporal Logic Specifications with Finite Trajectory Durations</h2>
-       <div class="video-row">
+        <h2 class="title">Robust Reinforcement Learning for Linear Temporal Logic Specifications with Finite Trajectory Durations</h2>
+
+        <div class="section office-world"> 
             <h3>Sequential Delivery Sample Trajectories</h3> 
-            <div class="gif-container"> 
+            <div class="video-row">
                 <img src="data/sequential_delivery_2_p1.gif" alt="Sample Delivery 1">
                 <img src="data/sequential_delivery_4_p1.gif" alt="Sample Delivery 2">
                 <img src="data/sequential_delivery_6_p1.gif" alt="Sample Delivery 3">
             </div>
-        </div>
+        </div>  
+       
 
         <div class="section office-world"> 
             <h3>Office World Sample Trajectory</h3>
             <div class="gif-container"> 
-                <img src="data/office_world.gif" alt="Office World GIF">
+                <img src="data/office_world_p1.gif" alt="Office World GIF">
             </div>
         </div>
 
 
+        <h2>Details of the neural network:</h2>
+        <p class="text"><strong>Network input format: </strong> The input to the network should be the product MDP state of the desired state.
+            A product MDP (Markov Decision Process) incorporates information about the state of the MDP and the LDBA
+             (Likely Deterministic Büchi Automaton - used for specifying tasks). This can be represented in a <em>channeled</em>
+              format of the grid world.Assuming the robot is navigating a grid world of shape m &times; n, this grid world can be
+              represented as a matrix of shape m &times; n, where each element including the position of the robot, labels of cells
+               like <em>a, b, c,...</em>, and the existence of obstacles are encoded by numbers. Empty cells can be shown via zeros.
+            A simple example is given in the figure below where the grid world and the encoding are present.
+        </p>
+        <p class="text">
+            To change this single matrix to include information about the LDBA, it is possible to augment it with zero matrices <em>k-1</em> times,
+              where <em>k</em> is the number of LDBA states in total. Now the state of the LDBA can be represented by putting the non-zero
+               matrix (the encoded MDP state) in the iᵗʰ channel, where <em>i</em> is the current LDBA state among all <em>k</em>
+                states. The figure below also shows a channeled version of a grid world.
+        </p>
+        <img class="text img" src="data/NN_input.png" alt="Image 1">
+        <p class="text">
+            <strong>Network architecture:</strong> The architecture of the network in this work is as
+            follows. The input to the network as discussed above is a matrix of shape (m, n, k) where
+            <em>m, n</em> is the number of rows and columns of the grid world, and <em>k</em> is the
+            number of LDBA (Likely Deterministic Büchi Automaton) states. The two subsequent layers are
+            Conv2d layers with 32 and 8 kernels of shape (2,2) respectively, with one zero padding,
+            and <em>RELU</em> (Rectified Linear Unit) activation functions. After flattening the
+            resulting (m, n, 8) matrix into a vector of size (8 &times; n &times; n), two consecutive
+            Dense layers are applied with 32 and 16 outputs respectively (and <em>RELU</em> activation
+            functions). The final <em>16</em> element vector is passed through i) a Dense layer of size
+            <em>l</em>, where <em>l</em> is the number of possible MDP (Markov Decision Process) + LDBA
+            actions, with a <em>softmax</em> activation function to produce the action probability
+            distribution (the policy) and ii) a Dense layer of size one, with a <em>Sigmoid</em>
+            activation function to give the predicted success probability as a real number
+            &isin; (0, 1). The loss function for these two outputs is <em>categorical crossentropy</em>
+            and <em>mse</em> (Mean Squared Error) respectively (see  equation below).
+            The optimizer for the network is <em>Adam</em>, with Keras's default parameters for
+            its implementation. 
+            </p>
+            <p>
+                \[ L(\text{encoded}(s^*)) = (r_{\text{LTLf}}-v)^2 - \pi^T \log \mathbf{p} +c||\theta||^2 \]
 
-        <p class="author">By Anonymous</p> 
-        <img src="pic1.png" alt="Image 1">
-        <img src="pic2.png" alt="Image 2">
-        <img src="pic3.png" alt="Image 3">
-        <img src="pic4.png" alt="Image 4">
+            </p>
+        
+        <h2>The ten Craft-World tasks:</h2>
+        <img src="data/craft-world-tasks.png" alt="Image 4">
     </div>
 
     <div class="gif-section">
