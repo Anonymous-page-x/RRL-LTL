@@ -68,7 +68,7 @@
             <strong>Network architecture:</strong> The architecture of the network in this work is as
             follows. The input to the network as discussed above is a matrix of shape (m, n, k) where
             <em>m, n</em> is the number of rows and columns of the grid world, and <em>k</em> is the
-            number of LDBA (Likely Deterministic Büchi Automaton) states. The two subsequent layers are
+            number of LDBA states. The two subsequent layers are
             Conv2d layers with 32 and 8 kernels of shape (2,2) respectively, with one zero padding,
             and <em>RELU</em> (Rectified Linear Unit) activation functions. After flattening the
             resulting (m, n, 8) matrix into a vector of size (8 &times; n &times; n), two consecutive
@@ -81,12 +81,15 @@
             &isin; (0, 1). The loss function for these two outputs is <em>categorical crossentropy</em>
             and <em>mse</em> (Mean Squared Error) respectively (see  equation below).
             The optimizer for the network is <em>Adam</em>, with Keras's default parameters for
-            its implementation.
+            its implementation.  See the following plot for an example of the neural network architecture
+            when we have 7 LDBA states. (Corresponding to task 10 in the craft-world)
             </p>
             <p>
                 \[ L(\text{encoded}(s^*)) = (r_{\text{LTLf}}-v)^2 - \pi^T \log \mathbf{p} +c||\theta||^2 \]
 
             </p>
+            <h2>Example network architecture for 7 LDBA states:</h2>
+            <img class="text img" src="data/model_plot.png" alt="Example network architecture">
         
         <h2>The ten Craft-World tasks:</h2>
         <img class="text img" src="data/craft-world-tasks.png" alt="The ten Craft-World tasks">
