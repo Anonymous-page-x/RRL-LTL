@@ -14,7 +14,7 @@
     <div class="article-container">
         <h2 class="title">Robust Reinforcement Learning for Linear Temporal Logic Specifications with Finite Trajectory Durations</h2>
 
-        <div class="section office-world"> 
+        <div class="section sequential-delivery"> 
             <h3>Sequential Delivery Sample Trajectories</h3> 
             <div class="video-row">
                 <img src="data/sequential_delivery_2_p1.gif" alt="Sample Delivery 1">
@@ -27,9 +27,25 @@
         <div class="section office-world"> 
             <h3>Office World Sample Trajectory</h3>
             <div class="gif-container"> 
-                <img src="data/office_world_p1.gif" alt="Office World GIF">
+                <img class="text img" src="data/office_world_p1.gif" alt="Office World GIF">
             </div>
         </div>
+
+        <div class="section craft-world"> 
+            <h3>Craft World Sample Trajectories</h3> 
+            <div class="video-row">
+                <figure> 
+                    <img src="data/mine_craft_9_p1.gif" alt="Craft-world-task9">
+                    <figcaption>Task 9: Get Iron (ir) and Wood (tr) and take it to Factory (fa) and then get Gold (gm)</figcaption> 
+                </figure>
+        
+                <figure>
+                    <img src="data/mine_craft_10_p1.gif" alt="Craft-world-task10">
+                    <figcaption>Task 10:Get Wood (tr) go to Workbench (wb) then get Iron (ir) and go to Toolshed (ts) then go to Ore (or)</figcaption> 
+                </figure>
+            </div>
+        </div> 
+         
 
 
         <h2>Details of the neural network:</h2>
@@ -47,7 +63,7 @@
                matrix (the encoded MDP state) in the iᵗʰ channel, where <em>i</em> is the current LDBA state among all <em>k</em>
                 states. The figure below also shows a channeled version of a grid world.
         </p>
-        <img class="text img" src="data/NN_input.png" alt="Image 1">
+        <img class="text img" src="data/NN_input.png" alt="tasks definition">
         <p class="text">
             <strong>Network architecture:</strong> The architecture of the network in this work is as
             follows. The input to the network as discussed above is a matrix of shape (m, n, k) where
@@ -65,7 +81,7 @@
             &isin; (0, 1). The loss function for these two outputs is <em>categorical crossentropy</em>
             and <em>mse</em> (Mean Squared Error) respectively (see  equation below).
             The optimizer for the network is <em>Adam</em>, with Keras's default parameters for
-            its implementation. 
+            its implementation.
             </p>
             <p>
                 \[ L(\text{encoded}(s^*)) = (r_{\text{LTLf}}-v)^2 - \pi^T \log \mathbf{p} +c||\theta||^2 \]
@@ -73,13 +89,13 @@
             </p>
         
         <h2>The ten Craft-World tasks:</h2>
-        <img src="data/craft-world-tasks.png" alt="Image 4">
+        <img class="text img" src="data/craft-world-tasks.png" alt="The ten Craft-World tasks">
+
+        <h2>Plots for the ten Craft-World tasks:</h2>
+        <p class="download-info">You can see the pdf for plots of the 10 craft-world tasks here: <a href="data/10_task_plots.pdf" target="_blank">PDF_File</a></p>
+
     </div>
 
-    <div class="gif-section">
-        <div class="gif-grid">
-        </div> 
-    </div>
-
+    
 </body>
 </html>

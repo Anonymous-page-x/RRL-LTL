@@ -54,8 +54,14 @@ h2.title {
     justify-content: space-around; /* Distribute GIFs evenly */
 }
 
-.video-row img {
+.sequential-delivery .video-row img {
     max-width: 30%;        /* Adjust percentage for individual GIF size */
+    height: auto;          
+    margin: 10px;          /* Spacing between GIFs */
+}
+
+.craft-world .video-row img {
+    max-width: 100%;        /* Adjust percentage for individual GIF size */
     height: auto;          
     margin: 10px;          /* Spacing between GIFs */
 }
@@ -77,5 +83,21 @@ h2.title {
 }
 
 .text.img {
-    max-width: 90%;
+    max-width: 100%;
+    height: auto;
+}
+
+.tasks {
+    max-width: 100%;
+}
+
+.video-row figure {
+    text-align: center;  
+    width: 40%;  /* Adjust percentage for desired figure width */
+    margin: 0 auto;  /* Centers the figure */
+}
+
+.video-row figcaption {
+    margin-top: 10px; 
+    word-break: break-word;  /* Allows long words to break */
 }
