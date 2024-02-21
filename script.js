@@ -7,3 +7,10 @@ for (let i = 1; i <= maxGifs; i++) {
     img.alt = `GIF ${i}`; 
     gifGrid.appendChild(img);
 }
+
+MathJax = {
+    tex: {
+      linebreaks: { automatic: true } 
+    }
+    // ... other MathJax configuration options
+  };

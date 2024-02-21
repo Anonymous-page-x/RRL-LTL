@@ -101,3 +101,7 @@ h2.title {
     margin-top: 10px; 
     word-break: break-word;  /* Allows long words to break */
 }
+
+.equation {
+    word-wrap: break-word;  /* Allows long words to break */
+}
