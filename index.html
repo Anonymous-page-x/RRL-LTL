@@ -50,9 +50,8 @@
 
         <h2>Details of the neural network:</h2>
         <p class="text"><strong>Network input format: </strong> The input to the network should be the product MDP state of the desired state.
-            A product MDP (Markov Decision Process) incorporates information about the state of the MDP and the LDBA.
-            This can be represented in a <em>channeled</em> format of the grid world.
-            Assuming the robot is navigating a grid world of shape m &times; n, this grid world can be
+            A product MDP (Markov Decision Process) incorporates information about the state of the MDP and the LDBA. This can be represented in a <em>channeled</em>
+              format of the grid world. Assuming the robot is navigating a grid world of shape m &times; n, this grid world can be
               represented as a matrix of shape m &times; n, where each element including the position of the robot, labels of cells
                like <em>a, b, c,...</em>, and the existence of obstacles are encoded by numbers. Empty cells can be shown via zeros.
             A simple example is given in the figure below where the grid world and the encoding are present.
@@ -61,7 +60,8 @@
             To change this single matrix to include information about the LDBA, it is possible to augment it with zero matrices <em>k-1</em> times,
               where <em>k</em> is the number of LDBA states in total. Now the state of the LDBA can be represented by putting the non-zero
                matrix (the encoded MDP state) in the iᵗʰ channel, where <em>i</em> is the current LDBA state among all <em>k</em>
-                states. The figure below also shows a channeled version of a grid world.
+                states. The figure below also shows a channeled version of a grid world with <em>k</em> LDBA states when the robots
+                is assumed to be at the <em>iᵗʰ </em> state.
         </p>
         <img class="text img" src="data/NN_input.png" alt="tasks definition">
         <p class="text">
@@ -71,7 +71,7 @@
             number of LDBA states. The two subsequent layers are
             Conv2d layers with 32 and 8 kernels of shape (2,2) respectively, with one zero padding,
             and <em>RELU</em> (Rectified Linear Unit) activation functions. After flattening the
-            resulting (m, n, 8) matrix into a vector of size (8 &times; n &times; n), two consecutive
+            resulting (m, n, 8) matrix into a vector of size (n &times; m &times; 8), two consecutive
             Dense layers are applied with 32 and 16 outputs respectively (and <em>RELU</em> activation
             functions). The final <em>16</em> element vector is passed through i) a Dense layer of size
             <em>l</em>, where <em>l</em> is the number of possible MDP (Markov Decision Process) + LDBA
@@ -81,13 +81,14 @@
             &isin; (0, 1). The loss function for these two outputs is <em>categorical crossentropy</em>
             and <em>mse</em> (Mean Squared Error) respectively (see  equation below).
             The optimizer for the network is <em>Adam</em>, with Keras's default parameters for
-            its implementation.  See the following plot for an example of the neural network architecture
-            when we have 7 LDBA states. (Corresponding to task 10 in the craft-world)
+            its implementation. 
             </p>
             <p class="equation">
                 \[ L(\text{encoded}(s^*)) = (r_{\text{LTLf}}-v)^2 - \pi^T \log \mathbf{p} +c||\theta||^2 \]
 
             </p>
+            <p class="text">See the following plot for an example of the neural network architecture
+                when we have 7 LDBA states. (Corresponding to task 10 in the craft-world)</p>
             <h2>Example network architecture for 7 LDBA states:</h2>
             <img class="text img" src="data/model_plot.png" alt="Example network architecture">
         
