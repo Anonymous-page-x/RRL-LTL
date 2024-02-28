@@ -51,11 +51,11 @@ h2.title {
     display: flex;
     flex-direction: row; /* Change back to horizontal layout */
     align-items: center;   
-    justify-content: space-around; /* Distribute GIFs evenly */
+    justify-content: space-between; /* Distribute GIFs evenly */
 }
 
 .sequential-delivery .video-row img {
-    max-width: 30%;        /* Adjust percentage for individual GIF size */
+    max-width: 90%;        /* Adjust percentage for individual GIF size */
     height: auto;          
     margin: 10px;          /* Spacing between GIFs */
 }
@@ -72,7 +72,12 @@ h2.title {
     text-align: center;
 }
 
-.office-world .gif-container { 
+.gif-container {
+    display: flex;
+    justify-content: space-between; /* Distributes space between elements */
+}
+
+.office-world.gif-container { 
     /* Centers the GIF within the Office World section */
     display: flex;
     justify-content: center; 
@@ -95,6 +100,10 @@ h2.title {
     text-align: center;  
     width: 40%;  /* Adjust percentage for desired figure width */
     margin: 0 auto;  /* Centers the figure */
+}
+
+.office-world .video-row figure {
+    width: 90%;  /* Adjust percentage for desired figure width */
 }
 
 .video-row figcaption {

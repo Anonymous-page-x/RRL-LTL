@@ -14,22 +14,55 @@
     <div class="article-container">
         <h2 class="title">Robust Reinforcement Learning for Linear Temporal Logic Specifications with Finite Trajectory Durations</h2>
 
+        <p class="text"><strong>Abstract: </strong>Linear Temporal Logic (LTL), a formal behavioral specification language,
+            offers a mathematically unambiguous and succinct way to represent operating requirements for a wide variety of
+            Artificial Intelligence (AI) systems, including autonomous and robotic systems. Despite progress, learning policies
+            that reliably satisfy complex LTL specifications in challenging environments remains an open problem.
+            While LTL specifications are evaluated over infinite sequences,
+            this work focuses on solving objectives within agiven finite number of steps,
+            as is to be expected in most real world applications involving robotic or autonomous systems.
+            We study the problem of generating trajectories of a system that satisfy a given LTLf specification
+            in an environment with a priori unknown transition probabilities. Our proposed approach builds upon
+            the popular AlphaGo Zero Reinforcement Learning (RL) framework, which has found great success in the two-player game of Go,
+            to learn policies that can satisfy an LTLf specification given a limit on the trajectory duration. Extensive simulations
+            on complex robot motion planning problems demonstrate that our approach achieves higher success rates in satisfying given
+            specifications with time constraints compared to state-of-the-art methods. Importantly, our approach succeeds in cases
+            where the baseline method fails to find any satisfying policies.
+        </p>
+        <p class="text"><strong>About this page: </strong> This anonymous page is an extention to our paper, including playback gifs and supplementary
+            matterials for the original paper.
+        </p>
+
         <div class="section sequential-delivery"> 
             <h3>Sequential Delivery Sample Trajectories</h3> 
-            <div class="video-row">
-                <img src="data/sequential_delivery_2_p1.gif" alt="Sample Delivery 1">
-                <img src="data/sequential_delivery_4_p1.gif" alt="Sample Delivery 2">
-                <img src="data/sequential_delivery_6_p1.gif" alt="Sample Delivery 3">
+            <div class="gif-container video-row">
+                <figure>
+                    <img src="data/sequential_delivery_2_p1.gif" alt="Sample Delivery 1">
+                    <figcaption>Two danger zones</figcaption>
+                </figure>
+                <figure>
+                    <img src="data/sequential_delivery_4_p1.gif" alt="Sample Delivery 2">
+                    <figcaption>Four danger zones</figcaption>
+                </figure>
+                <figure>
+                    <img src="data/sequential_delivery_6_p1.gif" alt="Sample Delivery 3">
+                    <figcaption>Six danger zones</figcaption>
+                </figure>
             </div>
-        </div>  
+        </div>
+        
        
 
         <div class="section office-world"> 
             <h3>Office World Sample Trajectory</h3>
-            <div class="gif-container"> 
-                <img class="text img" src="data/office_world_p1.gif" alt="Office World GIF">
-            </div>
+            <div class="gif-container video-row"> 
+                <figure>
+                    <img class="text img" src="data/office_world_p1.gif" alt="Office World GIF">
+                    <figcaption>Delivering the Mail (m) and the Coffee (c) to the Office (o)</figcaption> 
+                </figure>
+            </div>   
         </div>
+        
 
         <div class="section craft-world"> 
             <h3>Craft World Sample Trajectories</h3> 
